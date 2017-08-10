@@ -22,7 +22,6 @@ class AuthClient {
   getStadium(id){
     return this.request({url: `/stadiums/${id}`})
     .then((response) => {
-      console.log(response)
       return response.data
     })
   }
@@ -35,7 +34,6 @@ class AuthClient {
   logIn(credentials) {
     return this.request({method: 'POST', url: '/login', data: credentials})
       .then(response => {
-        console.log(response.data)
         if(response.data.success) {
           const token = response.data.token
           this.setToken(token)
