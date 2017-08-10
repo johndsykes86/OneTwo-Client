@@ -8,7 +8,7 @@ const NavBar = (props) => {
       {props.currentUser
         ? (
           <div>
-            <li><NavLink to='/'>Stadiums</NavLink></li>
+            <li><NavLink to='/stadiums'>Stadiums</NavLink></li>
             <li><NavLink to='/logout'>Log Out</NavLink></li>
           </div>
         )

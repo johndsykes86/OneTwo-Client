@@ -15,7 +15,12 @@ class AuthClient {
 
   getStadiums(){
     return this.request({url: '/stadiums'})
-    .then(response => response.data)
+    .then((response) => response.data)
+  }
+
+  getStadium(id){
+    return this.request({url: `/stadiums/${id}`})
+    .then((response) => response.data)
   }
 
   signUp(userInfo) {
