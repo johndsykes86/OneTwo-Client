@@ -41,8 +41,9 @@ logOut(){
             <NavBar currentUser ={this.state.currentUser}/>
             <Route exact path="/stadiums" component={Stadiums}/>
 
-            <Route exact path="/stadiums/:id" component={Stadium}/>
-            <Route exact path="/profile/:id" component={Profile}/>
+            <Route path="/stadiums/:id" component={Stadium}/>
+            <Route exact path={`/profile/${this.state.currentUser._id}`} component={Profile}/>
+            <Route path="/profile/:id" component={Profile}/>
 
               <Route path='/login' render={() => (
               <LogIn onLogIn={this.setCurrentUser.bind(this)} />

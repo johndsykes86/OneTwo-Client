@@ -1,7 +1,6 @@
-
-
 import React from 'react'
 import auth from '../auth'
+import {Link} from 'react-router-dom'
 
 class Stadiums extends React.Component {
 
@@ -29,13 +28,12 @@ class Stadiums extends React.Component {
           {this.state.stadiums.map((stadium, index)=>{
             return(
               <div key = {index} className="stadium">
-                <h1 key ={index}>{stadium.stadiumName}</h1>
+                <Link to={`/stadiums/${stadium._id}`}>{stadium.stadiumName}</Link>
 
               </div>
             )
 
           })}
-          <h1>Did this even work</h1>
         </div>
       </div>
     )
