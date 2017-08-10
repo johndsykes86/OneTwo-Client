@@ -46,10 +46,10 @@ class Stadiums extends React.Component {
     headers: {token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1OThhMzkyMWYwZTUxZjgxOGMxNGY4MzMiLCJmaXJzdE5hbWUiOiJKb2huYXRob24iLCJsYXN0TmFtZSI6IlN5a2VzIiwidXNlck5hbWUiOiJtcmpzeWtlcyIsImVtYWlsIjoiam9obmRzeWtlczg2QGdtYWlsLmNvbSIsIl9fdiI6MiwiX2NoZWNrSW5zIjpbIjU5OGEzOWM0OTNlNTU0ODFhYjkwNTI0OSIsIjU5OGIyNTBkNzBiYzE1MGIzNGRjYTQyMCJdLCJpYXQiOjE1MDIzMTY1MDB9.ZCq1a73EWCPQzvVEx6iT6Rq8UMaPyw7glKb6qNzwZGc'}
   }).then((res)=>{
     console.log(res)
-    this.setState({stadiums: res, loading:false})})
+    this.setState({stadiums: res.data, loading:false})})
   }
 
-  stadiumKeys = Object.keys(this.state.stadiums) 
+  stadiumKeys = Object.keys(this.state.stadiums)
 
   componentDidMount(){
     this.getStadiums()

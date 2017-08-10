@@ -8,7 +8,7 @@ class LogIn extends React.Component{
     email: this.refs.email.value,
     password: this.refs.password.value
    }
-   this.props.parent.onLogInSubmit(formData)
+   this.props.parent.signUp(formData)
 
  }
   render(){
