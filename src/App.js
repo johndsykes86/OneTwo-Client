@@ -8,6 +8,7 @@ import './App.css';
 import auth from './auth'
 import Stadiums from './components/Stadiums'
 import LogIn from './components/LogIn'
+import LogOut from './components/LogOut'
 import SignUp from './components/SignUp'
 import NavBar from './components/NavBar'
 
@@ -37,7 +38,14 @@ logOut(){
         <div className="App">
             <NavBar currentUser ={this.state.currentUser}/>
             <Route exact path="/stadiums" component={Stadiums}/>
-            <Route exact path="/login" component={LogIn}/>
+            
+              <Route path='/login' render={() => (
+              <LogIn onLogIn={this.setCurrentUser.bind(this)} />
+            )} />
+
+              <Route path='/logout' render={() => (
+              <LogOut onLogOut={this.logOut.bind(this)} />
+            )} />
 
         </div>
 

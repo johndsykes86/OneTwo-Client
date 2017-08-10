@@ -2,7 +2,6 @@
 
 import React from 'react'
 import auth from '../auth'
-import { NavLink } from 'react-router-dom'
 
 class Stadiums extends React.Component {
 
