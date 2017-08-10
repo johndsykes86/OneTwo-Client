@@ -1,17 +1,26 @@
-import React from 'react';
-import {AppBar, Tabs, Tab} from 'material-ui/AppBar';
+import React from 'react'
+import { NavLink } from 'react-router-dom'
 
-/**
- * A simple example of `AppBar` with an icon on the right.
- * By default, the left icon is a navigation-menu.
- */
-const NavBar = () => (
-  <AppBar
-    title="OneTwo"
-    iconClassNameRight="muidocs-icon-navigation-expand-more"
-  />
+const NavBar = (props) => {
+  return (
+    <ul className="NavBar">
+      <li><NavLink exact to='/'>Home</NavLink></li>
+      {props.currentUser
+        ? (
+          <div>
+            <li><NavLink to='/'>Stadiums</NavLink></li>
+            <li><NavLink to='/logout'>Log Out</NavLink></li>
+          </div>
+        )
+        : (
+          <div>
+            <li><NavLink to='/login'>Log In</NavLink></li>
+            <li><NavLink to='/signup'>Sign Up</NavLink></li>
+          </div>
+        )
+      }
+    </ul>
+  )
+}
 
-
-);
-
-export default NavBar;
+export default NavBar

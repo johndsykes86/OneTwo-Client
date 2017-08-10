@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import axios from 'axios'
 
 import './App.css';
@@ -34,12 +33,13 @@ logOut(){
     const currentUser = this.state.currentUser
     return (
       <Router>
-        <MuiThemeProvider>
+
         <div className="App">
-            <NavBar />
+            <NavBar currentUser ={this.state.currentUser}/>
+            <Route exact path="/login" component={LogIn}/>
 
         </div>
-        </MuiThemeProvider>
+
       </Router>
 
     );
