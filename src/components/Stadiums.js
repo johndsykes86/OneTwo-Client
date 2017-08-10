@@ -49,6 +49,8 @@ class Stadiums extends React.Component {
     this.setState({stadiums: res, loading:false})})
   }
 
+  stadiumKeys = Object.keys(this.state.stadiums) 
+
   componentDidMount(){
     this.getStadiums()
   }
@@ -57,7 +59,7 @@ class Stadiums extends React.Component {
     return(
       <div className = "stadiumsView">
         <div className = "stadiums">
-          
+
         </div>
       </div>
     )
