@@ -28,7 +28,7 @@ class Stadiums extends React.Component {
         <div className = "stadiums">
           {this.state.stadiums.map((stadium, index)=>{
             return(
-              <div>
+              <div key = {index} className="stadium">
                 <h1 key ={index}>{stadium.stadiumName}</h1>
 
               </div>

@@ -11,6 +11,7 @@ import LogIn from './components/LogIn'
 import LogOut from './components/LogOut'
 import SignUp from './components/SignUp'
 import NavBar from './components/NavBar'
+import Stadium from './components/Stadium'
 
 class App extends Component {
 
@@ -38,7 +39,9 @@ logOut(){
         <div className="App">
             <NavBar currentUser ={this.state.currentUser}/>
             <Route exact path="/stadiums" component={Stadiums}/>
-            
+
+            <Route exact path="/stadiums/:id" component={Stadium}/>
+
               <Route path='/login' render={() => (
               <LogIn onLogIn={this.setCurrentUser.bind(this)} />
             )} />

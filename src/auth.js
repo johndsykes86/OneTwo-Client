@@ -1,6 +1,7 @@
 import axios from 'axios'
 import jwtDecode from 'jwt-decode'
 
+//
 class AuthClient {
   constructor() {
     this.request = axios.create({
@@ -20,7 +21,10 @@ class AuthClient {
 
   getStadium(id){
     return this.request({url: `/stadiums/${id}`})
-    .then((response) => response.data)
+    .then((response) => {
+      console.log(response)
+      return response.data
+    })
   }
 
   signUp(userInfo) {
