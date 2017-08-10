@@ -49,6 +49,13 @@ class AuthClient {
     return token ? jwtDecode(token) : null
   }
 
+  getUser(id){
+    return this.request({url: `/users/${id}`})
+      .then((response)=>{
+        console.log(response)
+        return response.data})
+  }
+
   getToken() {
     // retrieve token from local storage:
     return localStorage.getItem('token')

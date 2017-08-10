@@ -9,7 +9,7 @@ const NavBar = (props) => {
         ? (
           <div>
             <li><NavLink to='/stadiums'>Stadiums</NavLink></li>
-            <li><NavLink to='/profile/:id'>Profile</NavLink></li>
+            <li><NavLink to='/profile/'>Profile</NavLink></li>
             <li><NavLink to='/logout'>Log Out</NavLink></li>
           </div>
         )
