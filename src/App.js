@@ -10,6 +10,7 @@ import auth from './auth'
 import Stadiums from './components/Stadiums'
 import LogIn from './components/LogIn'
 import SignUp from './components/SignUp'
+import NavBar from './components/NavBar'
 
 class App extends Component {
 
@@ -33,9 +34,12 @@ logOut(){
     const currentUser = this.state.currentUser
     return (
       <Router>
+        <MuiThemeProvider>
         <div className="App">
-            <SignUp parent={this}/>
+            <NavBar />
+
         </div>
+        </MuiThemeProvider>
       </Router>
 
     );
