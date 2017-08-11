@@ -17,7 +17,7 @@ class ShowCheckins extends React.Component{
 
   render(){
         return(
-          {this.state.list[0]}
+          <h1></h1>
         )
       }
 
