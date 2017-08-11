@@ -4,14 +4,21 @@ import auth from '../auth'
 
 class ShowCheckins extends React.Component{
 
-  state = {
-    list: []
-  }
+    constructor(){
+      super()
+      this.state = {
+        list: []
+      }
+    }
+
 
   componentDidMount(){
+    console.log(this.props.parent.props.match.params.id)
     auth.getCheckin(this.props.parent.props.match.params.id).then((res)=>{
       console.log(res)
-      this.state.list = res
+      this.setState({
+        list: res
+       })
       })
     }
 

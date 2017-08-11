@@ -5,9 +5,13 @@ import ShowCheckins from '../components/ShowCheckIns'
 import {Container } from 'semantic-ui-react'
 
 class Stadium extends React.Component{
-  state = {
-    loading: true,
-    stadium: []
+  constructor() {
+    super()
+    this.state = {
+      loading: true,
+      stadium: []
+    }
+
   }
 
   componentDidMount(){

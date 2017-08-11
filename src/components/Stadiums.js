@@ -7,7 +7,7 @@ import {Grid, Card, Image, Container} from 'semantic-ui-react'
 class Stadiums extends React.Component {
 
   constructor() {
-    super();
+    super()
     this.state = {
       loading: true,
       stadiums: []
