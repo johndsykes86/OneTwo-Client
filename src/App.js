@@ -46,6 +46,8 @@ logOut(){
             <Route path="/stadiums/:id" component={Stadium}/>
             <Route path="/profile/:id" component={Profile}/>
 
+              <Route path='/signup' component={SignUp}/>
+
               <Route path='/login' render={() => (
               <LogIn onLogIn={this.setCurrentUser.bind(this)} />
             )} />
@@ -55,7 +57,7 @@ logOut(){
 
             )} />
 
-            
+
 
         </div>
 

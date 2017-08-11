@@ -28,12 +28,13 @@ class AuthClient {
 
   signUp(userInfo) {
     return this.request({method: 'POST', url: '/signup', data: userInfo})
-      .then((response) => response.data.success)
+      .then((response) => response.data)
   }
 
   logIn(credentials) {
     return this.request({method: 'POST', url: '/login', data: credentials})
       .then(response => {
+        console.log(response.data.success)
         if(response.data.success) {
           const token = response.data.token
           this.setToken(token)
