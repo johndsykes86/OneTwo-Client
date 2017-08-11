@@ -39,26 +39,3 @@ export default class NavBar extends Component {
     )
   }
 }
-
-// const NavBar = (props) => {
-//   return (
-//     <ul className="NavBar">
-//       <li><NavLink exact to='/'>Home</NavLink></li>
-//       {props.currentUser
-//         ? (
-//           <div>
-//             <li><NavLink to='/stadiums'>Stadiums</NavLink></li>
-//             <li><NavLink to='/profile/'>Profile</NavLink></li>
-//             <li><NavLink to='/logout'>Log Out</NavLink></li>
-//           </div>
-//         )
-//         : (
-//           <div>
-//             <li><NavLink to='/login'>Log In</NavLink></li>
-//             <li><NavLink to='/signup'>Sign Up</NavLink></li>
-//           </div>
-//         )
-//       }
-//     </ul>
-//   )
-// }
