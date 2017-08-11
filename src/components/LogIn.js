@@ -34,11 +34,9 @@ class LogIn extends React.Component {
           <Form success error onSubmit={this.handleLogInSubmit.bind(this)}>
             <Segment inverted>
             <Form.Field>
-              <label>Email</label>
               <input ref="email" placeholder='Email'/>
             </Form.Field>
             <Form.Field>
-              <label>Password</label>
               <input ref="password" type="password" placeholder='Password'/>
             </Form.Field>
             <Button type='submit'>Submit</Button>
