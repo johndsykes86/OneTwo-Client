@@ -1,6 +1,7 @@
 import React from 'react'
 import auth from '../auth'
 import CheckIn from '../components/CheckIn'
+import ShowCheckins from '../components/ShowCheckIns'
 
 class Stadium extends React.Component{
   state = {
@@ -27,6 +28,7 @@ class Stadium extends React.Component{
           <li>{this.state.stadium.yearBuilt}</li>
         </ul>
         <CheckIn parent={this}/>
+        <ShowCheckins parent={this}/>
       </div>
 
     )

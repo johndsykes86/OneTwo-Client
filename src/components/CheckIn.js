@@ -11,11 +11,12 @@ class CheckIn extends React.Component{
     evt.preventDefault()
     console.log(this.props.parent.props)
     const formData = {
+      _userID: auth.getCurrentUser()._id,
+      userName: auth.getCurrentUser().userName,
       _stadiumID: this.props.parent.props.match.params.id,
       comment: this.refs.comment.value,
-      _userID: auth.getCurrentUser()._id
     }
-    console.log(formData)
+
 
     auth.postCheckin(formData).then(success=>{
       if (success)(
