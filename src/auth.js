@@ -16,7 +16,9 @@ class AuthClient {
 
   getStadiums(){
     return this.request({url: '/stadiums'})
-    .then((response) => response.data)
+    .then((response) => {
+      return response.data
+    })
   }
 
   getStadium(id){
