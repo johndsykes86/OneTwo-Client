@@ -1,6 +1,7 @@
 import React from 'react'
 import auth from '../auth'
-import { Redirect } from 'react-router-dom'
+import {Redirect} from 'react-router-dom'
+import {Form, Header, Container, Segment} from 'semantic-ui-react'
 
 class SignUp extends React.Component {
   state = {
@@ -20,28 +21,48 @@ class SignUp extends React.Component {
     console.log(formData)
     auth.signUp(formData).then(success => {
       console.log(success)
-      if(success) this.setState({shouldRedirect: true})
+      if (success)
+        this.setState({shouldRedirect: true})
     })
   }
 
   render() {
-    return (
-      this.state.shouldRedirect
-      ? <Redirect to='/login' />
+    return (this.state.shouldRedirect
+      ? <Redirect to='/login'/>
       : (
         <div className="SignUp">
-          <h1>Create An Account</h1>
-          <form onSubmit={this.handleFormSubmit.bind(this)}>
-            <input ref="firstName" type="text" placeholder="First Name" /><br/>
-            <input ref="lastName" type="text" placeholder="Last Name" /><br/>
-            <input ref="userName" type="text" placeholder="User Name" /><br/>
-            <input ref="email" type="email" placeholder="Email" /><br/>
-            <input ref="password" type="password" placeholder="Password" /><br/>
-            <button>Create Account</button>
-          </form>
+
+          <Header as='h1'>Create An Account</Header>
+          <Container textAlign="center">
+            <Form onSubmit={this.handleFormSubmit.bind(this)}>
+              <Segment inverted>
+              <Form.Field widths="equal">
+                <input ref="firstName" type="text" placeholder="First Name"/><br/>
+              </Form.Field>
+
+              <Form.Field widths="equal">
+                <input ref="lastName" type="text" placeholder="Last Name"/><br/>
+              </Form.Field>
+
+              <Form.Field widths="equal">
+                <input ref="userName" type="text" placeholder="User Name"/><br/>
+              </Form.Field>
+
+              <Form.Field widths="equal">
+                <input ref="email" type="text" placeholder="Email"/><br/>
+              </Form.Field>
+
+              <Form.Field widths="equal">
+                <input ref="password" type="password" placeholder="Password"/><br/>
+              </Form.Field>
+
+              <Form.Button>Create Account</Form.Button>
+              </Segment>
+          </Form>
+          </Container>
+
         </div>
-      )
-    )
+      ))
   }
 }
 

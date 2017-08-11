@@ -1,7 +1,7 @@
 import React from 'react'
 import auth from '../auth'
 import {Redirect} from 'react-router-dom'
-import { Container, Button, Message, Form } from 'semantic-ui-react'
+import { Container, Button, Message, Form, Segment } from 'semantic-ui-react'
 
 class LogIn extends React.Component {
 
@@ -29,8 +29,10 @@ class LogIn extends React.Component {
     return (this.state.shouldRedirect
       ? <Redirect to='/stadiums'/>
       : (
+
         <Container>
           <Form success error onSubmit={this.handleLogInSubmit.bind(this)}>
+            <Segment inverted>
             <Form.Field>
               <label>Email</label>
               <input ref="email" placeholder='Email'/>
@@ -40,8 +42,11 @@ class LogIn extends React.Component {
               <input ref="password" type="password" placeholder='Password'/>
             </Form.Field>
             <Button type='submit'>Submit</Button>
+            </Segment>
           </Form>
+
         </Container>
+
 
       ))
   }
