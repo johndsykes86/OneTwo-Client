@@ -1,12 +1,12 @@
 import React from 'react'
 import auth from '../auth'
 import {Redirect} from 'react-router-dom'
-import { Container, Button, Checkbox, Form } from 'semantic-ui-react'
+import { Container, Button, Message, Form } from 'semantic-ui-react'
 
 class LogIn extends React.Component {
 
   state = {
-    shouldRedirect: false
+    shouldRedirect: false,
   }
 
   handleLogInSubmit(evt) {
@@ -18,7 +18,9 @@ class LogIn extends React.Component {
     auth.logIn(formData).then((user) => {
       if (user) {
         this.props.onLogIn()
-        this.setState({shouldRedirect: true})
+        this.setState({shouldRedirect: true, failedtoLogIn:false})
+      } else {
+        this.setState({shouldRedirect: true, failedtoLogIn:true})
       }
     })
 

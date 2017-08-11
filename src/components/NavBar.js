@@ -26,8 +26,8 @@ export default class NavBar extends Component {
           ):(
 
             <Menu pointing secondary>
-            <Menu.Item name='signup' active={activeItem === 'Sign Up'} as={NavLink} to='/signup' onClick={this.handleItemClick} />
-            <Menu.Item name='signin' active={activeItem === 'Sign In'} as={NavLink} to='/login' onClick={this.handleItemClick} />
+            <Menu.Item name='Sign Up' active={activeItem === 'Sign Up'} as={NavLink} to='/signup' onClick={this.handleItemClick} />
+            <Menu.Item name='Sign In' active={activeItem === 'Sign In'} as={NavLink} to='/login' onClick={this.handleItemClick} />
             </Menu>
 
           )
