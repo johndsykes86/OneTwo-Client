@@ -13,6 +13,8 @@ import SignUp from './components/SignUp'
 import NavBar from './components/NavBar'
 import Stadium from './components/Stadium'
 import Profile from './components/Profile'
+import CheckIn from './components/CheckIn'
+
 
 class App extends Component {
 
@@ -42,7 +44,6 @@ logOut(){
             <Route exact path="/stadiums" component={Stadiums}/>
 
             <Route path="/stadiums/:id" component={Stadium}/>
-            <Route exact path={`/profile/${this.state.currentUser._id}`} component={Profile}/>
             <Route path="/profile/:id" component={Profile}/>
 
               <Route path='/login' render={() => (
@@ -51,7 +52,10 @@ logOut(){
 
               <Route path='/logout' render={() => (
               <LogOut onLogOut={this.logOut.bind(this)} />
+
             )} />
+
+            
 
         </div>
 

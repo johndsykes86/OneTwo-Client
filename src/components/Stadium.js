@@ -1,5 +1,6 @@
 import React from 'react'
 import auth from '../auth'
+import CheckIn from '../components/CheckIn'
 
 class Stadium extends React.Component{
   state = {
@@ -8,14 +9,11 @@ class Stadium extends React.Component{
   }
 
   componentDidMount(){
-    console.log(this.props)
     auth.getStadium(this.props.match.params.id).then((res)=>{
-      console.log(res)
       this.setState({
         stadium: res
       })
     })
-    console.log(this.state.stadium)
   }
 
   render(){
@@ -28,6 +26,7 @@ class Stadium extends React.Component{
           <li>{this.state.stadium.location}</li>
           <li>{this.state.stadium.yearBuilt}</li>
         </ul>
+        <CheckIn parent={this}/>
       </div>
 
     )

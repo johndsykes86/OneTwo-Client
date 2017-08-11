@@ -56,6 +56,11 @@ class AuthClient {
         return response.data})
   }
 
+  postCheckin(data){
+    console.log(data)
+    return this.request({method: "POST", url:`/stadiums/${data._stadiumID}/checkin`, data:data}).then(response=>response)
+  }
+
   getToken() {
     // retrieve token from local storage:
     return localStorage.getItem('token')
