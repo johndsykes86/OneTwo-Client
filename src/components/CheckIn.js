@@ -19,6 +19,8 @@ class CheckIn extends React.Component{
 
 
     auth.postCheckin(formData).then(success=>{
+      console.log(formData)
+      console.log(success)
       if (success)(
         this.refs.comment.value = ''
       )

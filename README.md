@@ -2,6 +2,9 @@
 # OneTwo
   A foursquare clone for MLS stadiums. Check in and share your favorite stadiums. Collect them all!
 
+#Screenshot
+[Image](http://i.imgur.com/Ib6nP2n.png)
+
 # Approach
 
 What is approach?
@@ -14,7 +17,7 @@ I pivoted about a day in and decided to build a four-square like app for being a
 
 I went off on a lot of tagents with this project. From wanting to implement geolocation to flipping between UI frameworks. I learned there's a lot out there I don't know but a lot I can learn...now at least.
 
-Unfortunately, the amount of tangents I went on (and being sick during project week) limited my MVP. I dont feel like this is my best work but the project I learned the most from. 
+Unfortunately, the amount of tangents I went on (and being sick during project week) limited my MVP. I dont feel like this is my best work but the project I learned the most from.
 
 #Tech used
 - React
@@ -30,3 +33,12 @@ Unfortunately, the amount of tangents I went on (and being sick during project w
 [Wireframes](https://wdi-project2.mybalsamiq.com/projects/wdi-project4)
 
 [Trello](https://wdi-project2.mybalsamiq.com/projects/wdi-project4/)
+
+# To-Do's
+
+-Token Verfication
+-SignUp Verfication
+-geolocation
+-fixing checkins showing up
+-User Profile
+-Badges

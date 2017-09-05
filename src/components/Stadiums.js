@@ -24,15 +24,14 @@ class Stadiums extends React.Component {
 
   render() {
     const newArr = chunk(this.state.stadiums, 3)
-    console.log(newArr)
     return (
       <Container>
       <div className="stadiums">
         <Grid columns={3}>
         {newArr.map((array, index) => (
-          <Grid.Row>
+          <Grid.Row key = {index}>
             {array.map((element, index) => (
-            <Grid.Column>
+            <Grid.Column key = {index}>
               <Card>
                 <Image src='/assets/images/avatar/large/matthew.png'/>
                 <Card.Content>

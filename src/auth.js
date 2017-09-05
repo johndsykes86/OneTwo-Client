@@ -60,11 +60,11 @@ class AuthClient {
   }
 
   postCheckin(data){
-    return this.request({method: "POST", url:`/stadiums/${data._stadiumID}/checkin`, data:data}).then(response=>response.data)
+    return this.request({method: "POST", url:`/checkins/${data._stadiumID}`, data:data}).then(response=>response.data)
   }
 
-  getCheckin(id){
-    return this.request({ url:`/stadiums/${id}/checkin` }).then(response=>response.data)
+  getCheckins(id){
+    return this.request({ url:`/checkins/${id}` }).then(response=>response.data)
   }
 
   getToken() {

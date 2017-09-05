@@ -7,11 +7,14 @@ class Profile extends React.Component{
   }
 
   componentDidMount(){
+  console.log(this.props.match.params)
     auth.getUser(this.props.match.params.id).then((user)=>{
       this.setState({
         user: user
       })
     })
+
+    console.log(this.state.user)
   }
 
   render(){

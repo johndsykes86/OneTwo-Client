@@ -9,7 +9,8 @@ class Stadium extends React.Component{
     super()
     this.state = {
       loading: true,
-      stadium: []
+      stadium: [],
+      checkins: []
     }
 
   }
@@ -20,6 +21,12 @@ class Stadium extends React.Component{
         stadium: res
       })
     })
+
+    auth.getCheckins(this.props.match.params.id).then((res)=>{
+      this.setState({
+        checkins: res.data
+       })
+      })
   }
 
   render(){

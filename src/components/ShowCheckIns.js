@@ -1,5 +1,6 @@
 import React from 'react'
 import auth from '../auth'
+import {Link} from 'react-router-dom'
 
 
 class ShowCheckins extends React.Component{
@@ -7,24 +8,35 @@ class ShowCheckins extends React.Component{
     constructor(){
       super()
       this.state = {
-        list: []
+        checkins: []
       }
     }
 
 
   componentDidMount(){
-    console.log(this.props.parent.props.match.params.id)
-    auth.getCheckin(this.props.parent.props.match.params.id).then((res)=>{
-      console.log(res)
+    auth.getCheckins(this.props.parent.props.match.params.id).then((res)=>{
       this.setState({
-        list: res
+        checkins: res.data
        })
       })
+
     }
 
   render(){
         return(
-          <h1></h1>
+          <div>
+
+            {this.state.checkins.map((checkin, index)=>{
+            return (
+              <div key ={index}>
+                <Link to={`/profile/${checkin._userID}`}>{checkin.userName}</Link>
+                <p>{checkin.comment}</p>
+              </div>
+            )
+          })}
+
+
+          </div>
         )
       }
 
