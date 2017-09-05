@@ -30,7 +30,7 @@ class CheckIn extends React.Component{
   render(){
     return(
      <form onSubmit={this.handleCheckInSubmit.bind(this)}>
-      <input type = "text" ref="comment" placeholder="Leave a comment about the checkin"/>
+      <input type = "text" ref="comment" placeholder="Leave a comment"/>
       <input type ="submit" value="Submit"/>
      </form>
     )
