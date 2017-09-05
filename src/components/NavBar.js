@@ -30,7 +30,6 @@ export default class NavBar extends Component {
           <Menu pointing secondary>
             <Menu.Item name='Stadiums' active={activeItem === 'stadiums'} as={NavLink} to='/stadiums' onClick={this.handleItemClick} />
             <Menu.Item name='Profile' active={activeItem === 'profile'} as={NavLink} exact to= {`/profile/${this.state.currentUser._id}`} onClick={this.handleItemClick} />
-            <Menu.Item name='Back' active={activeItem === 'profile'} as={NavLink} to='ting' onClick={this.handleItemClick} />
             <Menu.Menu position='right'>
             <Menu.Item name='Logout' active={activeItem === 'logout'} as={NavLink} to='logout' onClick={this.handleItemClick} />
             </Menu.Menu>

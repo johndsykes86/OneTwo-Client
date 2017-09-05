@@ -22,6 +22,16 @@ class ShowCheckins extends React.Component{
 
     }
 
+    componentDidUpdate(){
+      auth.getCheckins(this.props.parent.props.match.params.id).then((res)=>{
+        this.setState({
+          checkins: res.data
+         })
+        })
+    }
+
+    comp
+
   render(){
         return(
           <div>
