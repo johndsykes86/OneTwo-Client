@@ -18,16 +18,11 @@ class SignUp extends React.Component {
       email: this.refs.email.value,
       password: this.refs.password.value
     }
-    console.log("CREATING ACCOUNT...")
+
     console.log(formData)
-    auth.signUp(formData).then(success => {
-      if (success){
-      console.log(success)
-        this.setState({failedtoLogIn:false, shouldRedirect:true})
-      }
-      }).catch((error)=>{
-        console.log(error)
-        this.setState({failedtoLogIn:true, shouldRedirect:false})
+    auth.signUp(formData).then(response => {
+      if (response) this.setState({failedtoSignUp:false, shouldRedirect:true})
+      else this.setState({failedtoSignUp:true, shouldRedirect:false})
       })
       console.log(this.state)
   }
@@ -37,7 +32,7 @@ class SignUp extends React.Component {
       ? <div className="SignUp">
         <Header as='h1'>Create An Account</Header>
         <Container textAlign="center">
-          {!this.state.shouldRedirect && this.state.failedtoLogIn ? <Message attached error header="We were unable to sign you up for some reason, please make sure all fields are filled out and try again."/>: <Message attached info header="Fill out the form below to sign-up for a new account"/>}
+          {!this.state.shouldRedirect && this.state.failedtoSignUp ? <Message attached error header="We were unable to sign you up for some reason, please make sure all fields are filled out and try again."/>: <Message attached info header="Fill out the form below to sign-up for a new account"/>}
           <Form className='attached' onSubmit={this.handleFormSubmit.bind(this)}>
             <Segment inverted>
             <Form.Field widths="equal">

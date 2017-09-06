@@ -30,7 +30,11 @@ class AuthClient {
 
   signUp(userInfo) {
     return this.request({method: 'POST', url: '/signup', data: userInfo})
-      .then((response) => response.data.success)
+      .then((response) => {
+        if (response.data.errors) return false
+        else return true
+
+      })
   }
 
   logIn(credentials) {
