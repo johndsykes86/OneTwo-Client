@@ -1,4 +1,17 @@
+.stadiums-img{
+  width: 290px;
+  height: 200px;
+  overflow: hidden;
+}
 
+.stadiums-img img{
+  height: 200px;
+  width: 290px;
+}
+
+.view{
+  margin: 40px auto;
+}
 ul li {
   list-style-type: none;
 }

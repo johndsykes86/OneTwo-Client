@@ -25,7 +25,7 @@ class Stadiums extends React.Component {
   render() {
     const newArr = chunk(this.state.stadiums, 3)
     return (
-      <Container>
+      <Container className="view">
       <div className="stadiums">
         <Grid columns={3}>
         {newArr.map((array, index) => (
@@ -33,11 +33,16 @@ class Stadiums extends React.Component {
             {array.map((element, index) => (
             <Grid.Column key = {index}>
               <Card>
-                <Image src='/assets/images/avatar/large/matthew.png'/>
+                <Container className = "stadiums-img">
+                <Image src={element.picURL}/>
+                </Container>
                 <Card.Content>
                   <Card.Header>
                     <Link to={`/stadiums/${element._id}`}>{element.stadiumName}</Link>
                   </Card.Header>
+                  <Card.Description>
+                    {element.team}
+                  </Card.Description>
                   <Card.Meta>
                     <span className='date'>
                       <p>Year Built: {element.yearBuilt}</p>
