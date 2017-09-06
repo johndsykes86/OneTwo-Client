@@ -37,10 +37,11 @@ class Stadium extends React.Component{
       <Container key={1} className="single-stadium-view">
         <div className="stadium-header">
           <Header as ='h1' textAlign="center" key={1}>{this.state.stadium.stadiumName}</Header>
-          <Header as ='h3' textAlign="center" dividing key={2}>{this.state.stadium.team}</Header>
-
+          <Header as ='h3' textAlign="center"  key={2}>{this.state.stadium.team}</Header>
+          <Divider/>
         </div>
-        <Statistic.Group size="mini" className="stadium-stats" widths='four'>
+        <div className="stadium-stats" >
+        <Statistic.Group size="mini" widths='four'>
 
 
               <Statistic>
@@ -67,6 +68,7 @@ class Stadium extends React.Component{
 
 
         </Statistic.Group>
+        </div>
         <Divider/>
       </Container>
       <Header as='h3'>Check-In</Header>

@@ -1,3 +1,12 @@
+/*Basic project styles*/
+.view{
+  margin: 40px auto
+}
+ul li {
+  list-style-type: none;
+}
+
+/*Stadium component styling*/
 .stadiums-img{
   width: 290px;
   height: 200px;
@@ -9,9 +18,20 @@
   width: 290px;
 }
 
-.view{
-  margin: 40px auto
+/*Stadium component styling*/
+.stadium-header,
+.stadium-stats{
+  margin: 20px auto;
 }
-ul li {
-  list-style-type: none;
+
+.stadium-header h1.ui.header{
+  line-height: 20px;
+  margin-top: 30px;
+  margin-bottom: 0;
 }
+
+ .stadium-header h3.ui.header{
+   line-height: 20px;
+   margin-top: 10px;
+   margin-bottom: 20px;
+ }
