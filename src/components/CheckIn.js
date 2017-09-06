@@ -24,13 +24,13 @@ class CheckIn extends React.Component{
       console.log(success)
       if (success)(
         this.refs.comment.value = ''
-      ) 
+      )
     })
   }
 
   render(){
     return(
-     <form onSubmit={this.handleCheckInSubmit.bind(this)}>
+     <form onSubmit={this.handleCheckInSubmit.bind(this)} className="checkin-form">
       <input type = "text" ref="comment" placeholder="Leave a comment"/>
       <input type ="submit" value="Submit"/>
      </form>

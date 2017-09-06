@@ -35,3 +35,11 @@ ul li {
    margin-top: 10px;
    margin-bottom: 20px;
  }
+
+ /*Checkin and Comments styling*/
+.checkin-form{
+  margin: 20px 0 40px 0;
+}
+.checkin-comment{
+  margin: 10px auto;
+}

@@ -29,18 +29,21 @@ class ShowCheckins extends React.Component {
 
   render() {
     return (
-      <Comment.Group size="large">
-        {this.state.checkins.map((checkin, index) => {
-          return (
-            <Comment>
-            <Comment.Content>
-              <Comment.Author as={Link} to={`/profile/${checkin._userID}`}>{checkin.userName}</Comment.Author>
-              <Comment.Text>{checkin.comment}</Comment.Text>
-            </Comment.Content>
-          </Comment>
-            )
-          })}
-      </Comment.Group>
+      <div>
+        <Comment.Group size="large">
+          {this.state.checkins.map((checkin, index) => {
+            return (
+              <Comment className="checkin-comment">
+              <Comment.Content >
+                <Comment.Author as={Link} to={`/profile/${checkin._userID}`}>{checkin.userName}</Comment.Author>
+                <Comment.Text >{checkin.comment}</Comment.Text>
+              </Comment.Content>
+            </Comment>
+              )
+            })}
+        </Comment.Group>
+      </div>
+
     )
   }
 
