@@ -1,55 +1,52 @@
 import React from 'react'
 import auth from '../auth'
 import {Link} from 'react-router-dom'
+import {Comment} from 'semantic-ui-react'
 
+class ShowCheckins extends React.Component {
 
-class ShowCheckins extends React.Component{
-
-    constructor(){
-      super()
-      this.state = {
-        checkins: []
-      }
+  constructor() {
+    super()
+    this.state = {
+      checkins: []
     }
+  }
 
+  componentDidMount() {
+    auth.getCheckins(this.props.parent.props.match.params.id).then((res) => {
+      this.setState({checkins: res.data})
+    })
 
-  componentDidMount(){
-    auth.getCheckins(this.props.parent.props.match.params.id).then((res)=>{
-      this.setState({
-        checkins: res.data
-       })
-      })
+  }
 
-    }
+  componentDidUpdate() {
+    auth.getCheckins(this.props.parent.props.match.params.id).then((res) => {
+      this.setState({checkins: res.data})
+    })
+  }
 
-    componentDidUpdate(){
-      auth.getCheckins(this.props.parent.props.match.params.id).then((res)=>{
-        this.setState({
-          checkins: res.data
-         })
-        })
-    }
+  comp
 
-    comp
+  render() {
+    return (
+      <Comment.Group size="massive">
+        {this.state.checkins.map((checkin, index) => {
+          return (
+            <Comment>
+            <Comment.Content>
+              <Comment.Author as={Link} to={`/profile/${checkin._userID}`}>{checkin.userName}</Comment.Author>
+              <Comment.Metadata>
+                <div>Today at 5:42PM</div>
+              </Comment.Metadata>
+              <Comment.Text>{checkin.comment}</Comment.Text>
 
-  render(){
-        return(
-          <div>
-
-            {this.state.checkins.map((checkin, index)=>{
-            return (
-              <div key ={index}>
-                <Link to={`/profile/${checkin._userID}`}>{checkin.userName}</Link>
-                <p>{checkin.comment}</p>
-              </div>
+            </Comment.Content>
+          </Comment>
             )
           })}
-
-
-          </div>
-        )
-      }
-
+      </Comment.Group>
+    )
+  }
 
 }
 
