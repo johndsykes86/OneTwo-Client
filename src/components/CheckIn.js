@@ -9,21 +9,22 @@ class CheckIn extends React.Component{
 
   handleCheckInSubmit(evt){
     evt.preventDefault()
-    console.log(this.props.parent.props)
+   console.log(this.props.parent.state.stadium.team)
     const formData = {
       _userID: auth.getCurrentUser()._id,
       userName: auth.getCurrentUser().userName,
       _stadiumID: this.props.parent.props.match.params.id,
       comment: this.refs.comment.value,
+      stadiumName: this.props.parent.state.stadium.stadiumName,
+      team: this.props.parent.state.stadium.team,
     }
-
 
     auth.postCheckin(formData).then(success=>{
       console.log(formData)
       console.log(success)
       if (success)(
         this.refs.comment.value = ''
-      )
+      ) 
     })
   }
 

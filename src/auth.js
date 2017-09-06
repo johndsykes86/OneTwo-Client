@@ -55,7 +55,6 @@ class AuthClient {
   getUser(id){
     return this.request({url: `/users/${id}`})
       .then((response)=>{
-        console.log(response)
         return response.data})
   }
 
@@ -64,7 +63,11 @@ class AuthClient {
   }
 
   getCheckins(id){
-    return this.request({ url:`/checkins/${id}` }).then(response=>response.data)
+    return this.request({ url:`/checkins/${id}`}).then(response=>response.data)
+  }
+
+  getCheckinsByID(id){
+    return this.request({ url:`/checkins/users/${id}` }).then(response=>response.data)
   }
 
   getToken() {

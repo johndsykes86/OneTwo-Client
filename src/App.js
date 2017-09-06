@@ -41,6 +41,7 @@ logOut(){
 
         <div className="App">
             <NavBar currentUser ={this.state.currentUser}/>
+            <Route exact path="/" component={Stadiums} />
             <Route exact path="/stadiums" component={Stadiums}/>
 
             <Route path="/stadiums/:id" component={Stadium}/>

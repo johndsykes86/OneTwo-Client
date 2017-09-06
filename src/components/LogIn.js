@@ -1,12 +1,13 @@
 import React from 'react'
 import auth from '../auth'
 import {Redirect} from 'react-router-dom'
-import { Container, Button, Message, Form, Segment } from 'semantic-ui-react'
+import { Container, Button, Message, Form, Segment, } from 'semantic-ui-react'
 
 class LogIn extends React.Component {
 
   state = {
     shouldRedirect: false,
+    failedtoLogIn: false
   }
 
   handleLogInSubmit(evt) {
@@ -16,21 +17,24 @@ class LogIn extends React.Component {
       password: this.refs.password.value
     }
     auth.logIn(formData).then((user) => {
+      console.log(user)
       if (user) {
         this.props.onLogIn()
         this.setState({shouldRedirect: true, failedtoLogIn:false})
       } else {
-        this.setState({shouldRedirect: true, failedtoLogIn:true})
+        this.setState({shouldRedirect: false, failedtoLogIn:true})
       }
+      console.log(this.state)
     })
 
   }
   render() {
     return (this.state.shouldRedirect
-      ? <Redirect to='/stadiums'/>
-      : (
+      ? <Redirect to='/'/>
+    : (
 
         <Container>
+          {!this.state.shouldRedirect && this.state.failedtoLogIn ? <Message error header="We were unable to log you in. Please check your email and password"/>: <Message info header="Please login with your email and password."/>}
           <Form success error onSubmit={this.handleLogInSubmit.bind(this)}>
             <Segment inverted>
             <Form.Field>

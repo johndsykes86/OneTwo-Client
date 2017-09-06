@@ -1,9 +1,12 @@
 import React from 'react'
 import auth from '../auth'
+import {Container, Header, Icon } from 'semantic-ui-react'
+
 class Profile extends React.Component{
 
   state={
-    user: []
+    user: [],
+    checkins: []
   }
 
   componentDidMount(){
@@ -11,19 +14,39 @@ class Profile extends React.Component{
       this.setState({
         user: user
       })
+
+    })
+
+    auth.getCheckinsByID(this.props.match.params.id).then((res)=>{
+      this.setState({
+        checkins: res.data
+      })
+      console.log(this.state.checkins)
     })
   }
 
+
+
   render(){
 
-    {console.log(this.props.history)}
     return(
-      <div>
+      <Container>
+        <Header as='h2'>{this.state.user.userName}</Header>
+        <Container>
+          <Header as='h3'>Check Ins: {this.state.checkins.length}</Header>
 
-       <h1>{this.state.user.firstName}</h1>
-       <h2>{this.state.user.lastName}</h2>
+          {this.state.checkins.map((checkin, index)=>{
+            return(
+            <div>
+                <h4>{checkin.stadiumName}</h4>
+                <h5>{checkin.team}</h5>
+                <p>{checkin.comment}</p>
+            </div>
+          )
+          })}
 
-      </div>
+        </Container>
+      </Container>
     )
   }
 }
