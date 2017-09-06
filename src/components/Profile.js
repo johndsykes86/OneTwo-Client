@@ -1,6 +1,6 @@
 import React from 'react'
 import auth from '../auth'
-import {Container, Header, Icon } from 'semantic-ui-react'
+import {Container, Header, Icon, Comment } from 'semantic-ui-react'
 
 class Profile extends React.Component{
 
@@ -31,20 +31,23 @@ class Profile extends React.Component{
 
     return(
       <Container>
-        <Header as='h2'>{this.state.user.userName}</Header>
+        <Header as='h1'>{this.state.user.userName}</Header>
         <Container>
-          <Header as='h3'>Check Ins: {this.state.checkins.length}</Header>
-
+          <Header as='h2'>Check Ins: {this.state.checkins.length}</Header>
+          <Comment.Group size='large'>
           {this.state.checkins.map((checkin, index)=>{
             return(
-            <div>
-                <h4>{checkin.stadiumName}</h4>
-                <h5>{checkin.team}</h5>
-                <p>{checkin.comment}</p>
-            </div>
+              <Comment>
+              <Comment.Content>
+                <Comment.Author>{checkin.userName}</Comment.Author>
+                <Comment.Metadata>{checkin.stadiumName} - {checkin.team} </Comment.Metadata>
+                <Comment.Text>{checkin.comment}</Comment.Text>
+              </Comment.Content>
+            </Comment>
           )
-          })}
-
+          })
+        }
+        </Comment.Group>
         </Container>
       </Container>
     )

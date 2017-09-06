@@ -29,17 +29,13 @@ class ShowCheckins extends React.Component {
 
   render() {
     return (
-      <Comment.Group size="massive">
+      <Comment.Group size="large">
         {this.state.checkins.map((checkin, index) => {
           return (
             <Comment>
             <Comment.Content>
               <Comment.Author as={Link} to={`/profile/${checkin._userID}`}>{checkin.userName}</Comment.Author>
-              <Comment.Metadata>
-                <div>Today at 5:42PM</div>
-              </Comment.Metadata>
               <Comment.Text>{checkin.comment}</Comment.Text>
-
             </Comment.Content>
           </Comment>
             )
