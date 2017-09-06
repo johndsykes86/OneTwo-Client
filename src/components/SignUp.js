@@ -1,11 +1,12 @@
 import React from 'react'
 import auth from '../auth'
 import {Redirect} from 'react-router-dom'
-import {Form, Header, Container, Segment} from 'semantic-ui-react'
+import {Form, Header, Container, Segment, Message} from 'semantic-ui-react'
 
 class SignUp extends React.Component {
   state = {
-    shouldRedirect: false
+    shouldRedirect: false,
+    failedtoSignUp: ''
   }
 
   handleFormSubmit(evt) {
@@ -22,7 +23,8 @@ class SignUp extends React.Component {
     auth.signUp(formData).then(success => {
       console.log(success)
       if (success)
-        this.setState({shouldRedirect: true})
+        this.setState({shouldRedirect: true, failedtoLogIn:false})
+      else this.setState({failedtoLogIn: true})
     })
   }
 
@@ -31,9 +33,9 @@ class SignUp extends React.Component {
       ? <Redirect to='/login'/>
       : (
         <div className="SignUp">
-
           <Header as='h1'>Create An Account</Header>
           <Container textAlign="center">
+            {!this.state.shouldRedirect && this.state.failedtoLogIn ? <Message attached error header="We were unable to sign you up for some reason, please make sure all fields are filled out and try again."/>: <Message attached info header="Fill out the form below to sign-up for a new account"/>}
             <Form onSubmit={this.handleFormSubmit.bind(this)}>
               <Segment inverted>
               <Form.Field widths="equal">
