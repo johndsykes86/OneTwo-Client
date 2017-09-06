@@ -34,8 +34,8 @@ class LogIn extends React.Component {
     : (
 
         <Container>
-          {!this.state.shouldRedirect && this.state.failedtoLogIn ? <Message error header="We were unable to log you in. Please check your email and password"/>: <Message info header="Please login with your email and password."/>}
-          <Form success error onSubmit={this.handleLogInSubmit.bind(this)}>
+          {!this.state.shouldRedirect && this.state.failedtoLogIn ? <Message attached error header="We were unable to log you in. Please check your email and password"/>: <Message attached info header="Please login with your email and password."/>}
+          <Form className="Success" success error onSubmit={this.handleLogInSubmit.bind(this)}>
             <Segment inverted>
             <Form.Field>
               <input ref="email" placeholder='Email'/>
